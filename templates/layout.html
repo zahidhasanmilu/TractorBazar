@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TractorTrade - Secondhand Tractors</title>
+    <!-- Bootstrap 5.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Ubuntu Font from Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        body {
+            background-color: #e9ecef;
+            font-family: 'Ubuntu', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .top-bar {
+            padding: 10px 0;
+            font-size: 14px;
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        .top-bar:hover {
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        }
+        .top-bar span {
+            display: inline-flex;
+            align-items: center;
+            transition: color 0.3s ease;
+        }
+        .top-bar span:hover {
+            color: #ff5722;
+        }
+
+        .navbar {
+            background: linear-gradient(90deg, #007bff, #ff5722);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+        .navbar .nav-link {
+            color: white;
+            padding: 10px 15px;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+        .navbar .nav-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+        .navbar-brand:hover {
+            color: #fff;
+        }
+
+        .carousel-item img {
+            height: 400px;
+            object-fit: cover;
+            filter: brightness(80%);
+        }
+        .carousel-caption {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 15px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        .carousel-caption:hover {
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        .product-card {
+            border: none;
+            border-radius: 10px;
+            overflow: hidden;
+            background: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .product-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+        .product-card img {
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        .product-card:hover img {
+            transform: scale(1.15);
+        }
+        .card-body {
+            padding: 20px;
+            text-align: center;
+        }
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #007bff;
+            margin-bottom: 10px;
+        }
+        .card-text {
+            color: #555;
+            font-size: 0.95rem;
+        }
+        .btn-custom {
+            background: linear-gradient(45deg, #ff5722, #ff8a50);
+            border: none;
+            border-radius: 25px;
+            padding: 10px 20px;
+            font-weight: 700;
+            color: white;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .btn-custom:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 87, 34, 0.4);
+            background: linear-gradient(45deg, #e64a19, #ff5722);
+        }
+
+        .footer {
+            background: linear-gradient(90deg, #ff5722, #007bff);
+            padding: 20px 0;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        .footer p {
+            margin: 0;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            .carousel-item img {
+                height: 250px;
+            }
+            .top-bar {
+                text-align: center;
+            }
+            .top-bar .col-6 {
+                margin-bottom: 10px;
+            }
+            .product-card img {
+                height: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-6 col-md-12 text-center">
+                    <span>📞 Call Us: +880 1234-567890</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">TractorTrade</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <form class="d-flex mx-auto" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search tractors..." aria-label="Search">
+                    <button class="btn btn-outline-light" type="submit">Search</button>
+                </form>
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Tractor Brands</a>
+                        <ul class="dropdown-menu">
+                            {% for tractorBrand in all_tractorBrand %}
+                            <li><a class="dropdown-item" href="#">{{ tractorBrand.name|capfirst }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Account</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Login</a></li>
+                            <li><a class="dropdown-item" href="#">Register</a></li>
+                            <li><a class="dropdown-item" href="#">My Listings</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    {% block content %}
+        
+    {% endblock content %}
+        
+    <!-- Footer -->
+    <footer class="footer py-4 text-center">
+        <p>© 2025 TractorTrade. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Bootstrap JS and Custom JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Add to Cart/Contact Seller Alert
+        document.querySelectorAll('.btn-custom').forEach(button => {
+            button.addEventListener('click', function() {
+                const product = this.getAttribute('data-product');
+                alert(`Contact seller for ${product}!`);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+body {
+    background-color: #e9ecef;
+    /* Polished background color */
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.top-bar {
+    padding: 10px 0;
+    font-size: 14px;
+}
+
+.navbar {
+    background: linear-gradient(90deg, #007bff, #ff5722);
+    position: sticky;
+    /* Make navbar sticky */
+    top: 0;
+    /* Stick to top */
+    z-index: 1000;
+    /* Ensure it stays above other content */
+}
+
+.carousel-item img {
+    height: 400px;
+    object-fit: cover;
+}
+
+.product-card {
+    transition: transform 0.3s, box-shadow 0.3s;
+    overflow: hidden;
+    /* Prevent image overflow during zoom */
+}
+
+.product-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.product-card img {
+    transition: transform 0.3s ease;
+    /* Smooth image zoom transition */
+}
+
+.product-card:hover img {
+    transform: scale(1.2);
+    /* Zoom image on hover */
+}
+
+.btn-custom {
+    background-color: #ff5722;
+    border: none;
+}
+
+.btn-custom:hover {
+    background-color: #e64a19;
+}
+
+.footer {
+    background: linear-gradient(90deg, #ff5722, #007bff);
+    color: white;
+}
+
+.language-select {
+    font-size: 12px;
+    padding: 2px 5px;
+}
+
+@media (max-width: 768px) {
+    .carousel-item img {
+        height: 250px;
+    }
+
+    .top-bar .row {
+        text-align: center;
+    }
+
+    .top-bar .col-12 {
+        margin-bottom: 10px;
+    }
+}

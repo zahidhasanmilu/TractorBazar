@@ -37,9 +37,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'app_account',
     
+    'django_cleanup.apps.CleanupConfig',    
 ]
+CUSTOM_APPS = [
+    'app_account',
+    'app_tractor',
+    ]
+
+INSTALLED_APPS += CUSTOM_APPS
+
 AUTH_USER_MODEL = 'app_account.CustomUser'
 
 
@@ -59,7 +66,7 @@ ROOT_URLCONF = 'TractorBazar.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -67,6 +74,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'app_tractor.context_processors.get_all_tractorBrand',
             ],
         },
     },
