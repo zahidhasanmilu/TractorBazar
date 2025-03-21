@@ -22,4 +22,14 @@ def tractor_details(request, slug):
     return render(request, 'app_tractor/tractor_details.html', context)
 
 
+##-------------------------brand_all_tractors---------------------------------------
+def brand_all_tractors(request, slug):
+    brand_tractor = get_object_or_404(TractorBrand, slug=slug)
+    tractors = brand_tractor.brand_tractors.all().order_by('created_at')  # এখন কাজ করবে
+
+    context = {
+        'tractors': tractors,
+        'brand_tractor': brand_tractor,
+    }
+    return render(request, 'app_tractor/brand_tractors.html', context)
 
