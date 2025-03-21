@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import TractorBrand, Tractor, TractorImage
+from .models import TractorBrand, Tractor, TractorImage,TractorVideo
 
 # Register your models here.
 @admin.register(TractorBrand)
@@ -18,3 +18,7 @@ class TractorAdmin(admin.ModelAdmin):
 class TractorImageAdmin(admin.ModelAdmin):
     list_display = ('id', 'tractor__name', 'tractor__brand__name', 'image', 'created_at', 'updated_at')
     list_filter = ('tractor__brand',)  # Filter by tractor brand
+
+@admin.register(TractorVideo)
+class TractorVideoAdmin(admin.ModelAdmin):
+    list_display = ('id', 'tractor__name', 'tractor__brand__name', 'video', 'created_at', 'updated_at')

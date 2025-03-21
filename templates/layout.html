@@ -18,7 +18,7 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-12 col-md-12 text-center">
-                    <span>📞 Call Us: +880 1234-567890</span>
+                    <span>📞 Call Us: 01743609863</span>
                 </div>
             </div>
         </div>
@@ -27,13 +27,13 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
-            <a class="navbar-brand" href="{% url 'home' %}">Tractor Bazar</a>
+            <a class="navbar-brand" href="{% url 'home' %}">Tractor BAZAR</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <form class="d-flex mx-auto" action="{% url 'search_tractor' %}" method="GET" role="search">
-                    <input class="form-control me-2" name="search" type="search" placeholder="Search tractors..." aria-label="Search">
+                    <input class="form-control me-2" name="search" required type="search" placeholder="Search tractors..." aria-label="Search">
                     <button class="btn btn-outline-light btn-sm" type="submit">Search</button>
                 </form>
                 <ul class="navbar-nav ms-auto">

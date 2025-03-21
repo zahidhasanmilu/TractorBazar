@@ -16,8 +16,10 @@ def home(request):
 ##-------------------------tractor_details---------------------------------------
 def tractor_details(request, slug):
     tractor = get_object_or_404(Tractor, slug=slug)
+    tractor_videos =tractor.tractor_videos.all()
     context = {
         'tractor': tractor,
+        'tractor_videos':tractor_videos
     }
     return render(request, 'app_tractor/tractor_details.html', context)
 

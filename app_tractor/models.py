@@ -34,6 +34,7 @@ class Tractor(models.Model):
     user = models.ForeignKey(CustomUser, on_delete=models.SET_NULL, null=True,related_name='user_tractors')
     name = models.CharField(max_length=255)  # ট্রাক্টরের নাম
     slug = models.SlugField(unique=True, blank=True)
+    tractor_details = models.TextField(blank=True, null=True)  # ট্রাক্টরের বিস্তারিত বিবরণ
     brand = models.ForeignKey(TractorBrand, on_delete=models.SET_NULL, null=True, related_name='brand_tractors')
     model_year = models.IntegerField(blank=True, null=True)
     price = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
@@ -98,6 +99,6 @@ def tractor_videos_directory_path(instance, filename):
 class TractorVideo(models.Model):
     user = models.ForeignKey(CustomUser, on_delete=models.SET_NULL, null=True,  related_name='user_videos')
     tractor = models.ForeignKey(Tractor, on_delete=models.CASCADE, related_name="tractor_videos")  # ট্রাক্টরের সাথে সম্পর্ক
-    video = models.ImageField(upload_to=tractor_videos_directory_path)  # video আপলোড করার ফিল্ড
+    video = models.FileField(upload_to=tractor_videos_directory_path)  # video আপলোড করার ফিল্ড
     created_at = models.DateTimeField(auto_now_add=True)  # পোস্টের সময়
     updated_at = models.DateTimeField(auto_now=True)
