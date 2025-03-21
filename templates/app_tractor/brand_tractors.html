@@ -1,0 +1,10 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block content %}
+{{brand_tractor.name}}
+
+
+{% for tractor in tractors %}
+{{tractor.name}}
+{% endfor %}
+{% endblock content %}

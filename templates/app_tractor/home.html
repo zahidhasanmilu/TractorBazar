@@ -7,36 +7,36 @@
             <div class="carousel-item active">
                 <img src="{% static 'images/1.jpg' %}" class="d-block w-100" alt="Slide 1">
                 <div class="carousel-caption d-none d-md-block">
-                    <h5>Best Deals!</h5>
-                    <p>Affordable secondhand tractors for all your needs.</p>
+                    <h5>নতুন পুরাতন ট্রাক্টর কেনা বেচার জন্য যোগাযোগ করুন!</h5>
+                    <p>মোবাইল নম্বরঃ ০১৭৪৩৬০৯৮৬৩</p>
                 </div>
             </div>
             <div class="carousel-item">
                 <img src="{% static 'images/2.jpg' %}" class="d-block w-100" alt="Slide 2">
                 <div class="carousel-caption d-none d-md-block">
-                    <h5>Top Brands</h5>
-                    <p>John Deere, Mahindra, and more!</p>
+                    <h5>নতুন পুরাতন ট্রাক্টর কেনা বেচার জন্য যোগাযোগ করুন!</h5>
+                    <p>মোবাইল নম্বরঃ ০১৭৪৩৬০৯৮৬৩</p>
                 </div>
             </div>
             <div class="carousel-item">
                 <img src="{% static 'images/3.jpg' %}" class="d-block w-100" alt="Slide 3">
                 <div class="carousel-caption d-none d-md-block">
-                    <h5>Buy or Sell</h5>
-                    <p>List your tractor for free!</p>
+                    <h5>নতুন পুরাতন ট্রাক্টর কেনা বেচার জন্য যোগাযোগ করুন!</h5>
+                    <p>মোবাইল নম্বরঃ ০১৭৪৩৬০৯৮৬৩</p>
                 </div>
             </div>
             <div class="carousel-item">
                 <img src="{% static 'images/4.jpg' %}" class="d-block w-100" alt="Slide 4">
                 <div class="carousel-caption d-none d-md-block">
-                    <h5>Buy or Sell</h5>
-                    <p>List your tractor for free!</p>
+                    <h5>নতুন পুরাতন ট্রাক্টর কেনা বেচার জন্য যোগাযোগ করুন!</h5>
+                    <p>মোবাইল নম্বরঃ ০১৭৪৩৬০৯৮৬৩</p>
                 </div>
             </div>
             <div class="carousel-item">
                 <img src="{% static 'images/5.jpg' %}" class="d-block w-100" alt="Slide 5">
                 <div class="carousel-caption d-none d-md-block">
-                    <h5>Buy or Sell</h5>
-                    <p>List your tractor for free!</p>
+                    <h5>নতুন পুরাতন ট্রাক্টর কেনা বেচার জন্য যোগাযোগ করুন!</h5>
+                    <p>মোবাইল নম্বরঃ ০১৭৪৩৬০৯৮৬৩</p>
                 </div>
             </div>
         </div>
@@ -66,7 +66,7 @@
                         <h5 class="card-title">{{ tractor.name }}</h5>
                         <p class="card-text">{{ tractor.model_year }} model, {{ tractor.engine_power }} HP, {{ tractor.condition }}</p>
                         <p class="fw-bold">${{ tractor.price }}</p>
-                        <button class="btn btn-custom" data-product="{{ tractor.name }}">Tractor Details</button>
+                        <a href="{% url 'tractor_details' tractor.slug %}"><button class="btn btn-custom" data-product="{{ tractor.name }}">Tractor Details</button></a>
                     </div>
                 </div>
             </div>

@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    <h2>Search Results for "{{ search_item }}"</h2>
+
+    {% if tractors %}
+        <ul>
+            {% for tractor in tractors %}
+                <li>
+                    <a href="{% url 'tractor_details' tractor.slug %}">{{ tractor.name }} - {{ tractor.brand.name }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>{{ search_item }} -No tractors found.</p>
+    {% endif %}
+{% endblock %}

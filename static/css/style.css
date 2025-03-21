@@ -1,67 +1,146 @@
 body {
     background-color: #e9ecef;
-    /* Polished background color */
     font-family: 'Ubuntu', sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
 .top-bar {
     padding: 10px 0;
     font-size: 14px;
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.top-bar:hover {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.top-bar span {
+    display: inline-flex;
+    align-items: center;
+    transition: color 0.3s ease;
+}
+
+.top-bar span:hover {
+    color: #ff5722;
 }
 
 .navbar {
     background: linear-gradient(90deg, #007bff, #ff5722);
     position: sticky;
-    /* Make navbar sticky */
     top: 0;
-    /* Stick to top */
     z-index: 1000;
-    /* Ensure it stays above other content */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.navbar .nav-link {
+    color: white;
+    padding: 10px 15px;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.navbar .nav-link:hover {
+    background: rgba(58, 52, 52, 0);
+    transform: translateY(-2px);
+}
+
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.navbar-brand:hover {
+    color: #fff;
 }
 
 .carousel-item img {
     height: 400px;
     object-fit: cover;
+    filter: brightness(80%);
+}
+
+.carousel-caption {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 15px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.carousel-caption:hover {
+    background: rgba(0, 0, 0, 0.7);
 }
 
 .product-card {
-    transition: transform 0.3s, box-shadow 0.3s;
+    border: none;
+    border-radius: 10px;
     overflow: hidden;
-    /* Prevent image overflow during zoom */
+    background: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .product-card:hover {
     transform: scale(1.05);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 .product-card img {
+    height: 200px;
+    object-fit: cover;
     transition: transform 0.3s ease;
-    /* Smooth image zoom transition */
 }
 
 .product-card:hover img {
-    transform: scale(1.2);
-    /* Zoom image on hover */
+    transform: scale(1.15);
+}
+
+.card-body {
+    padding: 20px;
+    text-align: center;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+.card-text {
+    color: #555;
+    font-size: 0.95rem;
 }
 
 .btn-custom {
-    background-color: #ff5722;
+    background: linear-gradient(45deg, #ff5722, #ff8a50);
     border: none;
+    border-radius: 25px;
+    padding: 10px 20px;
+    font-weight: 700;
+    color: white;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .btn-custom:hover {
-    background-color: #e64a19;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(255, 87, 34, 0.4);
+    background: linear-gradient(45deg, #e64a19, #ff5722);
 }
 
 .footer {
     background: linear-gradient(90deg, #ff5722, #007bff);
-    color: white;
+    padding: 20px 0;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
 }
 
-.language-select {
-    font-size: 12px;
-    padding: 2px 5px;
+.footer p {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 500;
 }
 
 @media (max-width: 768px) {
@@ -69,11 +148,39 @@ body {
         height: 250px;
     }
 
-    .top-bar .row {
+    .top-bar {
         text-align: center;
     }
 
-    .top-bar .col-12 {
+    .top-bar .col-6 {
         margin-bottom: 10px;
     }
+
+    .product-card img {
+        height: 150px;
+    }
+}
+
+
+/* Scroll Animation for Button */
+.scroll-active {
+    transform: translateY(-10px);
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Custom Button for Toggle */
+.btn-custom {
+    background: linear-gradient(45deg, #ff5722, #ff8a50);
+    border: none;
+    border-radius: 25px;
+    padding: 12px 30px;
+    font-weight: 700;
+    color: white;
+    text-decoration: none;
+    margin-top: 20px;
+}
+
+.btn-custom:hover {
+    transform: scale(1.05);
+    background: linear-gradient(45deg, #e64a19, #ff5722);
 }

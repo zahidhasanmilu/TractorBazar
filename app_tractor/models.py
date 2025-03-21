@@ -19,11 +19,12 @@ class TractorBrand(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)  
     updated_at = models.DateTimeField(auto_now=True)
     
+
     def save(self, *args, **kwargs):
-        if not self.slug:
+        if not self.slug or self.slug.strip() == '':
             self.slug = slugify(self.name) + "-" + str(uuid.uuid4())[:8]
         super().save(*args, **kwargs)
-    
+
     def __str__(self):
         return f'Name: {self.name}  , Is active: {self.is_active}'
     
@@ -67,7 +68,7 @@ class Tractor(models.Model):
 
     
     def save(self, *args, **kwargs):
-        if not self.slug:
+        if not self.slug or self.slug.strip() == '':
             self.slug = slugify(self.name) + "-" + str(uuid.uuid4())[:8]
         super().save(*args, **kwargs)
         
