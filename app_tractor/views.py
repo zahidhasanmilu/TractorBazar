@@ -33,3 +33,22 @@ def brand_all_tractors(request, slug):
     }
     return render(request, 'app_tractor/brand_tractors.html', context)
 
+
+#-------------------search---------------------------------------------
+def search_tractor(request):
+    search_item = request.GET.get('search', '').strip()  # ইউজার ইনপুট নিলাম
+    
+    tractors = Tractor.objects.none()  # ডিফল্টভাবে কোনো ট্রাক্টর না পাঠানো
+    
+    if search_item:  # সার্চ টার্ম থাকলে ফিল্টার করবো
+        tractors = Tractor.objects.filter(
+            Q(name__icontains=search_item) |     # নাম দিয়ে সার্চ
+            Q(brand__name__icontains=search_item) |  # ব্র্যান্ড দিয়ে সার্চ
+            Q(model_year__icontains=search_item)  # মডেল ইয়ার দিয়ে সার্চ
+        ).order_by('is_active')
+
+    context = {
+        'tractors': tractors,
+        'search_item': search_item
+    }
+    return render(request, 'app_tractor/search_results.html', context)
