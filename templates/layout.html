@@ -46,15 +46,8 @@
                             {% endfor %}
                         </ul>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Account</a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Login</a></li>
-                            <li><a class="dropdown-item" href="#">Register</a></li>
-                            <li><a class="dropdown-item" href="#">My Listings</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                    
+                    <li class="nav-item"><a class="nav-link" href="{% url 'contact_seller' %}">Contact</a></li>
                 </ul>
             </div>
         </div>
@@ -65,8 +58,8 @@
     {% endblock content %}
         
     <!-- Footer -->
-    <footer class="footer py-4 text-center">
-        <p>© 2025 TractorTrade. All Rights Reserved.</p>
+    <footer class="footer py-2 text-center">
+        <p>© 2025 Minionsmilu. All Rights Reserved.</p>
     </footer>
 
     <!-- Bootstrap JS and Custom JavaScript -->

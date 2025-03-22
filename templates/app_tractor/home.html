@@ -73,8 +73,9 @@
                         {% endif %}
                         <h3 class="card-title">{{tractor.brand.name|capfirst}}: {{ tractor.name }}</h3>
                         <p class="card-text">{{ tractor.model_year }} model, {{ tractor.engine_power }} HP, {{ tractor.condition }}</p>
+                        <p class="card-text">Brand: {{ tractor.brand.name }}</p>
                         <p class="fw-bold">৳ {{ tractor.price }}/- Taka</p>
-                        <a href="{% url 'tractor_details' tractor.slug %}"><button class="btn btn-custom" data-product="{{ tractor.name }}">Tractor Details</button></a>
+                        <a href="{% url 'tractor_details' tractor.slug %}"><button class="btn btn-custom" data-product="{{ tractor.name }}">ট্রাক্টরের বিবরন</button></a>
                     </div>
                 </div>
             </div>

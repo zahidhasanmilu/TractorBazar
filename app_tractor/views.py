@@ -1,5 +1,8 @@
 from django.shortcuts import get_object_or_404, render, HttpResponse
 from app_tractor.models import Tractor, TractorBrand
+from app_account.models.profile import Profile
+from app_account.models.managers import CustomUser
+
 from django.db.models import Q
 
 # Create your views here.
@@ -54,3 +57,5 @@ def search_tractor(request):
         'search_item': search_item
     }
     return render(request, 'app_tractor/search_results.html', context)
+
+

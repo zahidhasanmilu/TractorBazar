@@ -1,17 +1,125 @@
 {% extends 'layout.html' %}
+{% load static %}
 
 {% block content %}
-    <h2>Search Results for "{{ search_item }}"</h2>
 
-    {% if tractors %}
-        <ul>
+
+
+    <!-- Brand Thumbnail Section -->
+    
+        <section>
+            <div class="row align-items-center">
+                <div class="col-12 text-center">
+                    <div class="thumbnail-container">
+                        <!-- <h2 class="text-center mb-4  fw-bold" style="color:#003152">{{brand_tractor.brand_tractors.all.count}} {{brand_tractor.name|upper}}
+                            {% if brand_tractor.brand_tractors.all.count > 1 %} Tractors{% else %} Tractor{% endif %}
+                    </h2> -->
+                    <h2 class="text-center mb-4  fw-bold" style="color:#003152">Search Results for "{{ search_item }}"</h2>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+    
+    <!-- Brand Name -->
+    
+    <!-- Featured Tractors Section -->
+    <section class="container my-5">
+        
+        <div class="row g-4">
             {% for tractor in tractors %}
-                <li>
-                    <a href="{% url 'tractor_details' tractor.slug %}">{{ tractor.name }} - {{ tractor.brand.name }}</a>
-                </li>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="card product-card">
+                    <!-- Tractor Image -->
+                    {% if tractor.tractor_images.first %}
+                    <img src="{{ tractor.tractor_images.first.image.url }}" class="card-img-top" alt="{{ tractor.name }}">
+                    {% else %}
+                    <img src="{% static 'images/default_tractor.jpg' %}" class="card-img-top" alt="{{ tractor.name }}">
+                    {% endif %}
+    
+                    <div class="card-body">
+                        <!-- Availability Badge -->
+                        {% if tractor.is_active %}
+                        <span class="badge bg-success on-sell-badge">বিক্রি হবে</span>
+                        {% else %}
+                        <span class="badge bg-danger on-sell-badge">বিক্রি হয়ে গেছে</span>
+                        {% endif %}
+    
+                        <h3 class="card-title_brand">{{ tractor.brand.name|capfirst }}: {{ tractor.name }}</h3>
+                        <p class="card-text">{{ tractor.model_year }} model, {{ tractor.engine_power }} HP, {{ tractor.condition }}</p>
+                        <p class="fw-bold text-primary">৳ {{ tractor.price }}/- Taka</p>
+    
+                        <a href="{% url 'tractor_details' tractor.slug %}">
+                            <button class="btn btn-success w-100">ট্রাক্টরের বিবরণ</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <div class="col-12 text-center">
+                <p class="text-muted">No tractors available at the moment.</p>
+            </div>
             {% endfor %}
-        </ul>
-    {% else %}
-        <p>{{ search_item }} -No tractors found.</p>
-    {% endif %}
+        </div>
+    </section>
+    
+    <!-- Custom Styles -->
+    <style>
+        /* Thumbnail Bar */
+        .thumbnail-container {
+            width: 100%;
+            height: 150px;
+            /* নির্দিষ্ট উচ্চতা ফিক্সড */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: #f4f4f4;
+            /* হালকা ধূসর ব্যাকগ্রাউন্ড */
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+    
+        .thumbnail-img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            /* ইমেজ কাটবে না, অনুপাত ঠিক থাকবে */
+        }
+    
+        /* Product Card */
+        .product-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+    
+        .product-card:hover {
+            transform: scale(1.05);
+        }
+    
+        .card-img-top {
+            height: 180px;
+            /* ট্রাক্টর ইমেজের উচ্চতা ফিক্সড */
+            object-fit: cover;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+        }
+    
+        .btn-custom {
+            background-color: #006134;
+            color: white;
+            border-radius: 5px;
+            padding: 8px 16px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+    
+        .btn-custom:hover {
+            background-color: #004422;
+        }
+    </style>
+    
 {% endblock %}

@@ -9,6 +9,8 @@ import os
 
 def tractor_brand_images_directory_path(instance, filename):
     return os.path.join('tractor_brand_images', instance.user.email, filename)
+def tractor_brand_thumbnails_directory_path(instance, filename):
+    return os.path.join('tractor_brand_thumbnails', instance.user.email, filename)
 class TractorBrand(models.Model):
     user = models.ForeignKey(CustomUser, on_delete=models.SET_NULL, null=True, related_name='user_tractor_brands')
     name = models.CharField(max_length=100)
@@ -16,6 +18,7 @@ class TractorBrand(models.Model):
     slug = models.SlugField(unique=True, blank=True)
     logo = models.ImageField(upload_to=tractor_brand_images_directory_path) 
     is_active = models.BooleanField(default=False)
+    brand_thumbnail = models.ImageField(upload_to=tractor_brand_thumbnails_directory_path, blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)  
     updated_at = models.DateTimeField(auto_now=True)
     

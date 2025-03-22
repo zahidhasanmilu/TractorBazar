@@ -1,0 +1,243 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block content %}
+<!-- Tractor Image and Video Slider Section -->
+<section class="container my-5">
+    <div class="row">
+        <!-- Image Slider Column -->
+        <div class="col-md-6">
+            <div id="tractorImageCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+                <div class="carousel-inner">
+                    {% for image in tractor.tractor_images.all %}
+                    <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                        <a href="{{ image.image.url }}" target="_blank">
+                            {% if tractor.is_active %}
+                            <span class="badge bg-success on-sell-badge">বিক্রি হবে</span>
+                            {% else %}
+                            <span class="badge bg-danger on-sell-badge">বিক্রি হয়ে গেছে</span>
+                            {% endif %}
+                            <img src="{{ image.image.url }}" class="d-block w-100" alt="Tractor Image">
+                        </a>
+                    </div>
+                    {% endfor %}
+                </div>
+
+                {% if tractor.tractor_images.all.count > 1 %}
+                <button class="carousel-control-prev" type="button" data-bs-target="#tractorImageCarousel"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#tractorImageCarousel"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+                {% endif %}
+
+            </div>
+        </div>
+
+        <!-- Video Slider Column -->
+        <div class="col-md-6 mt-2 d-flex justify-content-center align-items-center">
+            <div class="card shadow-lg border-0"
+                style="width: 100%; background: #fff; border-radius: 10px; overflow: hidden;">
+                <div id="tractorVideoCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+                    <div class="carousel-inner">
+                        {% if tractor.tractor_videos.all %}
+                        {% for video in tractor.tractor_videos.all %}
+                        <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                            <div class="video-container">
+                                <video class="d-block w-100 rounded" controls>
+                                    <source src="{{ video.video.url }}" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                            {% if video.caption %}
+                            <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-75 rounded p-2">
+                                <h5 class="text-white">{{ video.caption }}</h5>
+                            </div>
+                            {% endif %}
+                        </div>
+                        {% endfor %}
+                        {% else %}
+                        <div class="carousel-item active d-flex justify-content-center align-items-center">
+                            <p class="text-center fw-bold" style="font-size: 24px; color: #006134;"> কোনো ভিডিও নেই
+                            </p>
+                        </div>
+                        {% endif %}
+                    </div>
+
+                    {% if tractor.tractor_videos.all.count > 1 %}
+                    <button class="carousel-control-prev custom-carousel-btn" type="button"
+                        data-bs-target="#tractorVideoCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon bg-dark rounded-circle p-2" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next custom-carousel-btn" type="button"
+                        data-bs-target="#tractorVideoCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon bg-dark rounded-circle p-2" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- Tractor Details Table -->
+<section class="container my-5">
+    <h2 class="text-center mb-4" style="color: #006134; font-weight: 700;">{{ tractor.name }}</h2>
+    <div class="row">
+        <div class="col-md-12 " style="text-align: justify; color: #000000;">
+            <table class="table table-bordered table-striped table-details">
+                <tbody>
+                    <td>{{ tractor.tractor_details|linebreaksbr }}</td>
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-md-8">
+            <table class="table table-bordered table-striped">
+                <tbody>
+                    <tr>
+                        <th>Brand</th>
+                        <td>{{ tractor.brand.name }}</td>
+                    </tr>
+                    <tr>
+                        <th>Model Year</th>
+                        <td>{{ tractor.model_year }}</td>
+                    </tr>
+                    <tr>
+                        <th>Price</th>
+                        <td>${{ tractor.price }}</td>
+                    </tr>
+                    <tr>
+                        <th>Condition</th>
+                        <td>{{ tractor.condition }}</td>
+                    </tr>
+                    <tr>
+                        <th>Location</th>
+                        <td>{{ tractor.location }}</td>
+                    </tr>
+                    <tr>
+                        <th>Engine Power</th>
+                        <td>{{ tractor.engine_power }} HP</td>
+                    </tr>
+                    <tr>
+                        <th>Engine Type</th>
+                        <td>{{ tractor.engine_type }}</td>
+                    </tr>
+                    <tr>
+                        <th>Cylinder Count</th>
+                        <td>{{ tractor.cylinder_count }}</td>
+                    </tr>
+                    <tr>
+                        <th>Fuel Capacity</th>
+                        <td>{{ tractor.fuel_capacity }} Liters</td>
+                    </tr>
+                    <tr>
+                        <th>Mileage</th>
+                        <td>{{ tractor.mileage }} KM/L</td>
+                    </tr>
+                    <tr>
+                        <th>Gearbox</th>
+                        <td>{{ tractor.gearbox }}</td>
+                    </tr>
+                    <tr>
+                        <th>Brake Type</th>
+                        <td>{{ tractor.brake_type }}</td>
+                    </tr>
+                    <tr>
+                        <th>Steering Type</th>
+                        <td>{{ tractor.steering_type }}</td>
+                    </tr>
+                    <tr>
+                        <th>Tyre Size</th>
+                        <td>{{ tractor.tyre_size }}</td>
+                    </tr>
+                    <tr>
+                        <th>Hydraulics</th>
+                        <td>{{ tractor.hydraulics }} KG</td>
+                    </tr>
+                    <tr>
+                        <th>PTO Power</th>
+                        <td>{{ tractor.pto_power }} HP</td>
+                    </tr>
+                    <tr>
+                        <th>Drive Type</th>
+                        <td>{{ tractor.drive_type }}</td>
+                    </tr>
+                    <tr>
+                        <th>Registration Number</th>
+                        <td>{{ tractor.registration_number }}</td>
+                    </tr>
+                    <tr>
+                        <th>Ownership Status</th>
+                        <td>{{ tractor.ownership_status }}</td>
+                    </tr>
+                    <tr>
+                        <th>Insurance Status</th>
+                        <td>{% if tractor.insurance_status %}Yes{% else %}No{% endif %}</td>
+                    </tr>
+                    <tr>
+                        <th>Description</th>
+                        <td>{{ tractor.description }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- বিক্রেতার তথ্য এবং কন্টাক্ট অপশন -->
+        <div class="col-md-4 text-center">
+            <div class="card shadow-lg border-0" style="background-color: #f8f9fa; border-radius: 10px; padding: 20px;">
+                <h4 class="text-center mb-3" style="color: #006134; font-weight: 700;">Seller Information</h4>
+                <div class="seller-info mb-4">
+                    <p><strong>Name:</strong> <span style="color: #333;">{{ tractor.seller_name }}</span></p>
+                    <p><strong>Contact:</strong> <a href="tel:{{ tractor.seller_contact }}"
+                            style="color: #007bff; text-decoration: none;">{{ tractor.seller_contact }}</a></p>
+                    <p><strong>Email:</strong> <a href="mailto:{{ tractor.seller_email }}"
+                            style="color: #007bff; text-decoration: none;">{{ tractor.seller_email }}</a></p>
+                </div>
+
+                <div class="interest-info">
+                    <h5 class="mb-3" style="color: #006134; font-weight: 600;">Interested in this Tractor?</h5>
+                    <p style="color: #555; font-size: 16px;">Contact us to discuss the details and price!</p>
+                    <a href="tel:{{ tractor.seller_contact }}" class="btn btn-lg btn-custom" id="contact-btn"
+                        style="background-color: #006134; color: white; padding: 10px 30px; border-radius: 5px; font-weight: 600;">Call
+                        Now</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    </section>
+
+
+    <!-- Scroll Animation and JS Enhancements -->
+    <script>
+        // Custom Toggle for Showing/ Hiding Tractor Details
+        const toggleDetailsBtn = document.createElement('button');
+        toggleDetailsBtn.innerText = 'Show/Hide Details';
+        toggleDetailsBtn.classList.add('btn', 'btn-custom', 'mt-3');
+        document.querySelector(".container.my-5").appendChild(toggleDetailsBtn);
+
+        toggleDetailsBtn.addEventListener("click", function () {
+            const table = document.querySelector(".table");
+            if (table.style.display === "none") {
+                table.style.display = "block";
+            } else {
+                table.style.display = "none";
+            }
+        });
+    </script>
+
+    {% endblock content %}
