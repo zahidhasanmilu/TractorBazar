@@ -2,58 +2,46 @@
 {% load static %}
 
 {% block content %}
+
 <section class="container py-5">
+    
+
     <div class="row justify-content-center">
-        <div class="col-md-8">
-            <!-- Contact Page Header -->
-            <div class="text-center mb-5">
-                <h2 class="fw-bold">যোগাযোগ করুন</h2>
-                <p class="text-muted">যেকোনো প্রশ্ন বা পরামর্শের জন্য আমাদের সাথে যোগাযোগ করুন।</p>
-            </div>
+        <div class="col-md-8 text-center">
+            <h2 class="mb-4">যোগাযোগের তথ্য</h2>
+            <p class="mb-4">নিম্নলিখিত যোগাযোগের বিবরণের মাধ্যমে আমাদের সাথে যোগাযোগ করতে পারবেন।</p>
 
-            <!-- Contact Form -->
-            <div class="card shadow-sm border-0 rounded-4">
-                <div class="card-body p-4">
-                    <form>
-                        <!-- Name Input -->
-                        <div class="mb-3">
-                            <label for="name" class="form-label">নাম</label>
-                            <input type="text" class="form-control" id="name" placeholder="আপনার নাম লিখুন" required>
-                        </div>
-                        
-                        <!-- Email Input -->
-                        <div class="mb-3">
-                            <label for="email" class="form-label">ইমেইল</label>
-                            <input type="email" class="form-control" id="email" placeholder="আপনার ইমেইল লিখুন" required>
-                        </div>
+            <div class="card shadow-sm border-0">
+                <div class="card-body">
+                    <h5 class="card-title mb-3">📍 ঠিকানা</h5>
+                    <p class="card-text">মন্ত্রী মার্কেট, ফুলবাড়ি, দিনাজপুর, বাংলাদেশ </p>
 
-                        <!-- Subject Input -->
-                        <div class="mb-3">
-                            <label for="subject" class="form-label">বিষয়</label>
-                            <input type="text" class="form-control" id="subject" placeholder="বিষয় লিখুন" required>
-                        </div>
+                    <h5 class="card-title mt-4 mb-3">📞 ফোন</h5>
+                    <p class="card-text">০১৭৪৩৬০৯৮৬৩</p>
 
-                        <!-- Message Textarea -->
-                        <div class="mb-3">
-                            <label for="message" class="form-label">বার্তা</label>
-                            <textarea class="form-control" id="message" rows="5" placeholder="আপনার বার্তা লিখুন" required></textarea>
-                        </div>
+                    <h5 class="card-title mt-4 mb-3">✉️ ইমেইল</h5>
+                    <p class="card-text">support@tractorbazar.com</p>
 
-                        <!-- Submit Button -->
-                        <div class="text-center">
-                            <button type="submit" class="btn btn-primary w-100">প্রেরণ করুন</button>
-                        </div>
-                    </form>
+                    <h5 class="card-title mt-4 mb-3">🕒 অফিস সময়</h5>
+                    <p class="card-text">শনিবার থেকে বৃহস্পতিবার <br>শুক্রবার: বন্ধ</p>
+
+                    <h5 class="card-title mt-4 mb-3">🌐 আমাদের ফলো করুন</h5>
+                    <p>
+                        <a href="#" class="text-decoration-none me-3"><i class="bi bi-facebook"></i> Facebook</a>
+                        <a href="#" class="text-decoration-none me-3"><i class="bi bi-youtube"></i> YouTube</a>
+                        <a href="#" class="text-decoration-none"><i class="bi bi-instagram"></i> Instagram</a>
+                    </p>
                 </div>
             </div>
-
-            <!-- Contact Information -->
-            <div class="text-center mt-5">
-                <h4 class="fw-bold">আমাদের যোগাযোগ তথ্য</h4>
-                <p><i class="fas fa-map-marker-alt text-primary"></i> ঢাকা, বাংলাদেশ</p>
-                <p><i class="fas fa-phone-alt text-success"></i> <a href="tel:+880000000000" class="text-decoration-none">+88 000 000 0000</a></p>
-                <p><i class="fas fa-envelope text-danger"></i> <a href="mailto:info@example.com" class="text-decoration-none">info@example.com</a></p>
-            </div>
+        </div>
+    </div>
+    <div class="mt-5">
+        <h5 class="mb-3">📌 Our Location on Map</h5>
+        <div class="ratio ratio-16x9">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d311.52541155747144!2d88.95357766380756!3d25.499986759324823!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39fcb03b9cbbf425%3A0xcb100eaef3598fe8!2sMontri%20Market!5e1!3m2!1sen!2sbd!4v1745515102604!5m2!1sen!2sbd"
+                width="600" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </div>
 </section>

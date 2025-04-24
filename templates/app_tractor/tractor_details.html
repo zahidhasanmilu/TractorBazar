@@ -199,21 +199,20 @@
         <!-- বিক্রেতার তথ্য এবং কন্টাক্ট অপশন -->
         <div class="col-md-4 text-center">
             <div class="card shadow-lg border-0" style="background-color: #f8f9fa; border-radius: 10px; padding: 20px;">
-                <h4 class="text-center mb-3" style="color: #006134; font-weight: 700;">Seller Information</h4>
+                <h4 class="text-center mb-3" style="color: #006134; font-weight: 700;">বিক্রেতার তথ্য</h4>
                 <div class="seller-info mb-4">
-                    <p><strong>Name:</strong> <span style="color: #333;">{{ tractor.seller_name }}</span></p>
-                    <p><strong>Contact:</strong> <a href="tel:{{ tractor.seller_contact }}"
+                    <p><strong>নাম:</strong> <span style="color: #333;">{{ tractor.seller_name }}</span></p>
+                    <p><strong>ফোন নাম্বার:</strong> <a href="tel:{{ tractor.seller_contact }}"
                             style="color: #007bff; text-decoration: none;">{{ tractor.seller_contact }}</a></p>
-                    <p><strong>Email:</strong> <a href="mailto:{{ tractor.seller_email }}"
+                    <p><strong>ইমেইল:</strong> <a href="mailto:{{ tractor.seller_email }}"
                             style="color: #007bff; text-decoration: none;">{{ tractor.seller_email }}</a></p>
                 </div>
 
                 <div class="interest-info">
-                    <h5 class="mb-3" style="color: #006134; font-weight: 600;">Interested in this Tractor?</h5>
-                    <p style="color: #555; font-size: 16px;">Contact us to discuss the details and price!</p>
+                    <h5 class="mb-3" style="color: #006134; font-weight: 600;">আপনি কি এই ট্র্যাক্টরটিতে আগ্রহী?</h5>
+                    <p style="color: #555; font-size: 16px;">বিস্তারিত এবং দাম নিয়ে আলোচনা করতে আমাদের সাথে যোগাযোগ করুন!</p>
                     <a href="tel:{{ tractor.seller_contact }}" class="btn btn-lg btn-custom" id="contact-btn"
-                        style="background-color: #006134; color: white; padding: 10px 30px; border-radius: 5px; font-weight: 600;">Call
-                        Now</a>
+                        style="background-color: #006134; color: white; padding: 10px 30px; border-radius: 5px; font-weight: 600;">কল করুন</a>
                 </div>
             </div>
         </div>
